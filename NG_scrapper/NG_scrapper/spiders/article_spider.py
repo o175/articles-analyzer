@@ -18,8 +18,8 @@ class QuotesSpider(scrapy.Spider):
         converter.body_width = 0
         converter.ignore_links = True
         
-        page = response.url.split("/")[-1]
-        filename = './downloads/articles-%s' % page
+        page = response.url.split("/")[-1][0:-5]
+        filename = '../downloads/NG-%s.txt' % page
         text = converter.handle(response.css('.b-article').extract()[0]) #
         text = text.replace('*', '')
         with open(filename, 'w') as f:
