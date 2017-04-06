@@ -7,7 +7,7 @@ class QuotesSpider(scrapy.Spider):
 
     def start_requests(self):
         # for id in range(17000..76094): \\ все id статей, которые нас могут интересовать
-        for id in range(17000, 17003):
+        for id in range(74000, 76010):
             url = "http://old.novayagazeta.ru/politics/%s.html" %id
             yield scrapy.Request(url=url, callback=self.parse)
 
